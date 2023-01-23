@@ -1,4 +1,4 @@
-package com.android.dayplanner.app
+package com.android.dayplanner.app.tests
 
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.IdlingRegistry
@@ -9,8 +9,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 
-
-open class BaseUIClass {
+open class BaseTest {
 
     private var resourceIdling: SimpleIdlingResource? = null
 
