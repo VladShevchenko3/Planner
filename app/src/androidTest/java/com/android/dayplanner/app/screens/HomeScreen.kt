@@ -3,8 +3,16 @@ package com.android.dayplanner.app.screens
 import com.adevinta.android.barista.interaction.BaristaClickInteractions.clickOn
 import com.adevinta.android.barista.interaction.BaristaMenuClickInteractions.openMenu
 import com.android.dayplanner.app.R
+import com.android.dayplanner.app.screens.ListOfTasksBasic.actionClickOnDeleteButtonAtPosition
+import com.android.dayplanner.app.screens.ListOfTasksBasic.actionClickOnTheCheckBoxAtPosition
+import com.android.dayplanner.app.screens.ListOfTasksBasic.actionClickOnTheTaskAtPosition
+import com.android.dayplanner.app.screens.ListOfTasksBasic.assertDisplayedDateAtPosition
+import com.android.dayplanner.app.screens.ListOfTasksBasic.assertDisplayedDescriptionAtPosition
+import com.android.dayplanner.app.screens.ListOfTasksBasic.assertDisplayedTitleAtPosition
+import com.android.dayplanner.app.screens.ListOfTasksBasic.assertListItemCount
+import com.android.dayplanner.app.screens.ListOfTasksBasic.assertTheStatusIsNotCheckedAtPosition
 
-object HomeScreen : ListOfTasksBasic {
+object HomeScreen  {
 
     private const val fabTaskButton: Int = R.id.floating_action_button
     private const val showHistory: Int = R.string.label_history
@@ -44,12 +52,8 @@ object HomeScreen : ListOfTasksBasic {
         clickOn(showHistory)
     }
 
-    fun assertTaskIsNotPresentOnScreen(title: String) {
-        // assertTaskIsNotInTheList(listOfTasksView, title)
-    }
-
     fun assertTasksListIsEmpty() {
-        //assertTheListSize(listOfTasksView, 0)
+        assertListItemCount(listOfTasks, 0)
     }
 
     fun assertDisplayedTaskTitleAtPosition(elementPosition: Int, textTitle: String) {
@@ -64,7 +68,7 @@ object HomeScreen : ListOfTasksBasic {
         assertDisplayedDateAtPosition(listOfTasks, elementPosition, textDate)
     }
 
-    fun assertTheStatusOfTaskIsNotChecked(textTitle: String) {
-       // assertTheStatusIsNotChecked(listOfTasksView, textTitle)
+    fun assertTheStatusOfTaskIsNotCheckedAtPosition(elementPosition: Int) {
+        assertTheStatusIsNotCheckedAtPosition(listOfTasks, elementPosition)
     }
 }

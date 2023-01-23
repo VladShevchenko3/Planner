@@ -3,14 +3,13 @@ package com.android.dayplanner.app.screens
 import com.adevinta.android.barista.assertion.BaristaCheckedAssertions.assertChecked
 import com.adevinta.android.barista.assertion.BaristaCheckedAssertions.assertUnchecked
 import com.adevinta.android.barista.assertion.BaristaListAssertions.assertDisplayedAtPosition
-import com.adevinta.android.barista.assertion.BaristaListAssertions.assertListNotEmpty
 import com.adevinta.android.barista.assertion.BaristaRecyclerViewAssertions.assertRecyclerViewItemCount
 import com.adevinta.android.barista.interaction.BaristaListInteractions.clickListItem
 import com.adevinta.android.barista.interaction.BaristaListInteractions.clickListItemChild
 import com.adevinta.android.barista.interaction.BaristaListInteractions.scrollListToPosition
 import com.android.dayplanner.app.R
 
-interface ListOfTasksBasic {
+object ListOfTasksBasic {
 
     private val titleTextField: Int
         get() = R.id.textView_title
@@ -63,10 +62,6 @@ interface ListOfTasksBasic {
     fun assertTheStatusIsNotCheckedAtPosition(recyclerViewId: Int, elementPosition: Int) {
         scrollListToPosition(recyclerViewId, elementPosition)
         assertUnchecked(completeTaskCheckBox)
-    }
-
-    fun assertTheListSize(recyclerView: Int) {
-        assertListNotEmpty(recyclerView)
     }
 
     fun assertListItemCount(recyclerViewId: Int, itemCount: Int) {

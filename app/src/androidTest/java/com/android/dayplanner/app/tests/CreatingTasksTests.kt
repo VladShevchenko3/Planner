@@ -119,7 +119,7 @@ class CreatingTasksTests : BaseTest() {
             assertDisplayedTaskDateAtPosition(2, TASK_DATE1)
             assertDisplayedTaskTitleAtPosition(1, TASK_TITLE2)
             assertDisplayedTaskDescriptionAtPosition(1, TASK_DESCRIPTION2)
-            assertDisplayedTaskDateAtPosition(1, TASK_DATE3)
+            assertDisplayedTaskDateAtPosition(1, TASK_DATE2)
             assertDisplayedTaskTitleAtPosition(0, TASK_TITLE3)
             assertDisplayedTaskDescriptionAtPosition(0, TASK_DESCRIPTION3)
             assertDisplayedTaskDateAtPosition(0, TASK_DATE3)

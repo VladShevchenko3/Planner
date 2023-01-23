@@ -9,7 +9,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 
-
 open class BaseTest {
 
     private var resourceIdling: SimpleIdlingResource? = null
