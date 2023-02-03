@@ -3,24 +3,7 @@ package com.android.dayplanner.app.tests
 import com.android.dayplanner.app.screens.CreateTaskScreen
 import com.android.dayplanner.app.screens.HistoryScreen
 import com.android.dayplanner.app.screens.HomeScreen
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_DATE1
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_DATE2
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_DATE3
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_DESCRIPTION1
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_DESCRIPTION2
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_DESCRIPTION3
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_TITLE1
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_TITLE2
-import com.android.dayplanner.app.tests.DataForTests.EDIT_TASK_TITLE3
-import com.android.dayplanner.app.tests.DataForTests.TASK_DATE1
-import com.android.dayplanner.app.tests.DataForTests.TASK_DATE2
-import com.android.dayplanner.app.tests.DataForTests.TASK_DATE3
-import com.android.dayplanner.app.tests.DataForTests.TASK_DESCRIPTION1
-import com.android.dayplanner.app.tests.DataForTests.TASK_DESCRIPTION2
-import com.android.dayplanner.app.tests.DataForTests.TASK_DESCRIPTION3
-import com.android.dayplanner.app.tests.DataForTests.TASK_TITLE1
-import com.android.dayplanner.app.tests.DataForTests.TASK_TITLE2
-import com.android.dayplanner.app.tests.DataForTests.TASK_TITLE3
+import com.android.dayplanner.app.tests.DataForTests.getTaskData
 import io.github.kakaocup.kakao.screen.Screen.Companion.onScreen
 import org.junit.Test
 
@@ -35,64 +18,70 @@ class EditingTasksTests : BaseTest() {
      * */
     @Test
     fun editTasksOnTheHomeScreen() {
+        val task1 = getTaskData(1)
+        val task2 = getTaskData(2)
+        val task3 = getTaskData(3)
+        val task4 = getTaskData(4)
+        val task5 = getTaskData(5)
+        val task6 = getTaskData(6)
         onScreen<HomeScreen> {
             actionClickOnFabTaskButton()
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(TASK_TITLE1)
-            actionEditTextDescription(TASK_DESCRIPTION1)
-            actionEditTextDate(TASK_DATE1)
+            actionEditTextTitle(task1.title)
+            actionEditTextDescription(task1.description)
+            actionEditTextDate(task1.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
             actionClickOnFabTaskButton()
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(TASK_TITLE2)
-            actionEditTextDescription(TASK_DESCRIPTION2)
-            actionEditTextDate(TASK_DATE2)
+            actionEditTextTitle(task2.title)
+            actionEditTextDescription(task2.description)
+            actionEditTextDate(task2.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
             actionClickOnFabTaskButton()
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(TASK_TITLE3)
-            actionEditTextDescription(TASK_DESCRIPTION3)
-            actionEditTextDate(TASK_DATE3)
+            actionEditTextTitle(task3.title)
+            actionEditTextDescription(task3.description)
+            actionEditTextDate(task3.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
-            actionEditTheTask(TASK_TITLE1)
+            actionEditTheTask(task1.title)
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(EDIT_TASK_TITLE1)
-            actionEditTextDescription(EDIT_TASK_DESCRIPTION1)
-            actionEditTextDate(EDIT_TASK_DATE1)
+            actionEditTextTitle(task4.title)
+            actionEditTextDescription(task4.description)
+            actionEditTextDate(task4.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
-            actionEditTheTask(TASK_TITLE2)
+            actionEditTheTask(task2.title)
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(EDIT_TASK_TITLE2)
-            actionEditTextDescription(EDIT_TASK_DESCRIPTION2)
-            actionEditTextDate(EDIT_TASK_DATE2)
+            actionEditTextTitle(task5.title)
+            actionEditTextDescription(task5.description)
+            actionEditTextDate(task5.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
-            actionEditTheTask(TASK_TITLE3)
+            actionEditTheTask(task3.title)
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(EDIT_TASK_TITLE3)
-            actionEditTextDescription(EDIT_TASK_DESCRIPTION3)
-            actionEditTextDate(EDIT_TASK_DATE3)
+            actionEditTextTitle(task6.title)
+            actionEditTextDescription(task6.description)
+            actionEditTextDate(task6.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
-            assertTaskAddedInTheList(EDIT_TASK_TITLE1, EDIT_TASK_DESCRIPTION1, EDIT_TASK_DATE1)
-            assertTaskAddedInTheList(EDIT_TASK_TITLE2, EDIT_TASK_DESCRIPTION2, EDIT_TASK_DATE2)
-            assertTaskAddedInTheList(EDIT_TASK_TITLE3, EDIT_TASK_DESCRIPTION3, EDIT_TASK_DATE3)
+            assertTaskAddedInTheList(task4.title, task4.description, task4.date)
+            assertTaskAddedInTheList(task5.title, task5.description, task5.date)
+            assertTaskAddedInTheList(task6.title, task6.description, task6.date)
         }
     }
 
@@ -106,82 +95,88 @@ class EditingTasksTests : BaseTest() {
      * */
     @Test
     fun editTasksOnTheHistoryScreen() {
+        val task1 = getTaskData(1)
+        val task2 = getTaskData(2)
+        val task3 = getTaskData(3)
+        val task4 = getTaskData(4)
+        val task5 = getTaskData(5)
+        val task6 = getTaskData(6)
         onScreen<HomeScreen> {
             actionClickOnFabTaskButton()
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(TASK_TITLE1)
-            actionEditTextDescription(TASK_DESCRIPTION1)
-            actionEditTextDate(TASK_DATE1)
+            actionEditTextTitle(task1.title)
+            actionEditTextDescription(task1.description)
+            actionEditTextDate(task1.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
             actionClickOnFabTaskButton()
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(TASK_TITLE2)
-            actionEditTextDescription(TASK_DESCRIPTION2)
-            actionEditTextDate(TASK_DATE2)
+            actionEditTextTitle(task2.title)
+            actionEditTextDescription(task2.description)
+            actionEditTextDate(task2.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
             actionClickOnFabTaskButton()
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(TASK_TITLE3)
-            actionEditTextDescription(TASK_DESCRIPTION3)
-            actionEditTextDate(TASK_DATE3)
+            actionEditTextTitle(task3.title)
+            actionEditTextDescription(task3.description)
+            actionEditTextDate(task3.date)
             actionClickOnSaveButton()
         }
         onScreen<HomeScreen> {
-            actionClickOnCompleteTheTask(TASK_TITLE1)
-            actionClickOnCompleteTheTask(TASK_TITLE2)
-            actionClickOnCompleteTheTask(TASK_TITLE3)
+            actionClickOnCompleteTheTask(task1.title)
+            actionClickOnCompleteTheTask(task2.title)
+            actionClickOnCompleteTheTask(task3.title)
             actionOpensTheOverflowMenu()
             actionClickOnTheTasksHistory()
         }
         onScreen<HistoryScreen> {
-            actionEditTheTask(TASK_TITLE1)
+            actionEditTheTask(task1.title)
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(EDIT_TASK_TITLE1)
-            actionEditTextDescription(EDIT_TASK_DESCRIPTION1)
-            actionEditTextDate(EDIT_TASK_DATE1)
+            actionEditTextTitle(task4.title)
+            actionEditTextDescription(task4.description)
+            actionEditTextDate(task4.date)
             actionClickOnSaveButton()
         }
         onScreen<HistoryScreen> {
-            actionEditTheTask(TASK_TITLE2)
+            actionEditTheTask(task2.title)
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(EDIT_TASK_TITLE2)
-            actionEditTextDescription(EDIT_TASK_DESCRIPTION2)
-            actionEditTextDate(EDIT_TASK_DATE2)
+            actionEditTextTitle(task5.title)
+            actionEditTextDescription(task5.description)
+            actionEditTextDate(task5.date)
             actionClickOnSaveButton()
         }
         onScreen<HistoryScreen> {
-            actionEditTheTask(TASK_TITLE3)
+            actionEditTheTask(task3.title)
         }
         onScreen<CreateTaskScreen> {
-            actionEditTextTitle(EDIT_TASK_TITLE3)
-            actionEditTextDescription(EDIT_TASK_DESCRIPTION3)
-            actionEditTextDate(EDIT_TASK_DATE3)
+            actionEditTextTitle(task6.title)
+            actionEditTextDescription(task6.description)
+            actionEditTextDate(task6.date)
             actionClickOnSaveButton()
         }
         onScreen<HistoryScreen> {
             assertTaskAddedInTheTaskHistory(
-                EDIT_TASK_TITLE1,
-                EDIT_TASK_DESCRIPTION1,
-                EDIT_TASK_DATE1
+                task4.title,
+                task4.description,
+                task4.date
             )
             assertTaskAddedInTheTaskHistory(
-                EDIT_TASK_TITLE2,
-                EDIT_TASK_DESCRIPTION2,
-                EDIT_TASK_DATE2
+                task5.title,
+                task5.description,
+                task5.date
             )
             assertTaskAddedInTheTaskHistory(
-                EDIT_TASK_TITLE3,
-                EDIT_TASK_DESCRIPTION3,
-                EDIT_TASK_DATE3
+                task6.title,
+                task6.description,
+                task6.date
             )
         }
     }
